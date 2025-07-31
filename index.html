@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Health Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <h1>🌍 Global Health Dashboard</h1>
+        <p>Featuring data from WHO, UNFPA, and other sources</p>
+    </header>
+
+    <section>
+        <h2>🧪 WHO Embedded Dashboard</h2>
+        <iframe 
+            src="https://app.powerbi.com/view?r=YOUR-WHO-DASHBOARD-LINK" 
+            width="100%" 
+            height="600" 
+            frameborder="0" 
+            allowfullscreen>
+        </iframe>
+        <p><small>(Replace the above link with a valid WHO dashboard URL)</small></p>
+    </section>
+
+    <section>
+        <h2>📊 Custom Chart: UNFPA Population Data</h2>
+        <canvas id="populationChart" width="400" height="200"></canvas>
+        <script>
+            const ctx = document.getElementById('populationChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['2018', '2019', '2020', '2021', '2022'],
+                    datasets: [{
+                        label: 'Estimated Population (millions)',
+                        data: [1350, 1370, 1390, 1400, 1420],
+                        borderColor: '#4e73df',
+                        backgroundColor: 'rgba(78, 115, 223, 0.1)',
+                        tension: 0.3
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: false
+                        }
+                    }
+                }
+            });
+        </script>
+    </section>
+
+    <footer>
+        <p>Made with ❤️ using public data from WHO and UNFPA</p>
+    </footer>
+</body>
+</html>
